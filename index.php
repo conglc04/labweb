@@ -25,7 +25,10 @@ try {
         exit;
     }
 
-    $rows = $db->query('SELECT id, message, created_at FROM notes ORDER BY id DESC LIMIT 20')->fetchAll();
+    $rows = $db->query('SELECT id, message, create_at
+FROM notes
+ORDER BY id DESC
+LIMIT 20')->fetchAll();
 } catch (PDOException $e) {
     error_log('oVPC lab database error: ' . $e->getMessage());
     http_response_code(503);
